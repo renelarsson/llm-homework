@@ -1,5 +1,8 @@
 import dlt
 import os
+"""filesystem_pipeline.py prepares the data;
+mount_cognee.py loads and structures the data into the knowledge graph for querying and exploration, 
+while search_knowledge_graph.ipynb is used to query and explore that knowledge interactively."""
 
 
 @dlt.resource(table_name="api_source_docs", max_table_nesting=0)

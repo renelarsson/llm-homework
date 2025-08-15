@@ -6,7 +6,9 @@ from cognee.shared.logging_utils import get_logger, ERROR
 from cognee.api.v1.visualize.visualize import visualize_graph
 from cognee.api.v1.search import SearchType
 from cognee.modules.engine.models import NodeSet
-
+"""filesystem_pipeline.py prepares the data;
+mount_cognee.py loads and structures the data into the knowledge graph for querying and exploration, 
+while search_knowledge_graph.ipynb is used to query and explore that knowledge interactively."""
 
 async def main():
     await cognee.prune.prune_data()
@@ -53,7 +55,7 @@ if __name__ == "__main__":
     logger = get_logger(level=ERROR)
     loop = asyncio.new_event_loop()
     asyncio.run(main())
-    # add ontology
+    # add ontology: guides how the knowledge graph is built and interpreted, but it does not contain the knowledge itself
     asyncio.run(cognify_with_ontology("api_spec_ontology.owl"))
     # search
     #results = asyncio.run(search_cognee())
